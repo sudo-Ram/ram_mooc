@@ -23,6 +23,6 @@ import xadmin
 # xversion.register_models()
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
 ]

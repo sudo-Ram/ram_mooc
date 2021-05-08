@@ -141,5 +141,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
     # static文件夹的绝对路径'D:/Test/Message/static'
-
-]
+    ]

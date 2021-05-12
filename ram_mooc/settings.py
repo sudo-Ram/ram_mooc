@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.operations.apps.OperationsConfig',
     'crispy_forms',
     'xadmin.apps.XAdminConfig',
+    'captcha',
 ]
 
 # 'reversion',

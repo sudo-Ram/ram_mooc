@@ -71,13 +71,13 @@
                     <h2 >动态登录</h2>
                 </div>
                 <form class="tab-form" action="{% url 'login' %}" method="post" autocomplete="off" id="form1">
-                    <div class="form-group marb20 ">
-                        <input name="username" id="account_l" type="text" placeholder="手机号/邮箱" />
+                    <div class="form-group marb20 {% if login_form.errors.username %}errorput{% endif %}">
+                        <input name="username" id="account_l" value="{{ login_form.username.value }}" type="text" placeholder="手机号/邮箱" />
                     </div>
-                    <div class="form-group marb8 ">
-                        <input name="password" id="password_l" type="password" placeholder="请输入您的密码" />
+                    <div class="form-group marb8 {% if login_form.errors.password %}errorput{% endif %}">
+                        <input name="password" id="password_l" value="{{ login_form.password.value }}" type="password" placeholder="请输入您的密码" />
                     </div>
-                    <div class="error btns login-form-tips" id="jsLoginTips">{{ msg }}</div>
+                    <div class="error btns login-form-tips" id="jsLoginTips">{% if login_form.errors %}{% for key,error in login_form.errors.items %}{{ error }}{% endfor %}{% else %}{{ msg }}{% endif %}</div>
                      <div class="auto-box marb38">
 						<a class="fr" href="forgetpwd.html">忘记密码？</a>
                      </div>
@@ -90,7 +90,7 @@
                         <input id="jsRegMobile" name="mobile" type="text" placeholder="请输入您的手机号码">
                     </div>
                     <div class="form-group marb20 blur" id="jsRefreshCode">
-                        <input autocomplete="off" class="form-control-captcha mobile-register-captcha" id="mobile-register-captcha_1" name="captcha_m_1" placeholder="请输入验证码" type="text"> <input class="form-control-captcha mobile-register-captcha" id="mobile-register-captcha_0" name="captcha_m_0" placeholder="请输入验证码" type="hidden" value="f7ee32b98dff72e7c9248104b81b56c55188ec8a"> &nbsp;<img src="./多米乐首页_files/saved_resource" alt="captcha" class="captcha">
+                        {{ login_form.captcha}}
                     </div>
                     <div class="clearfix">
                         <div class="form-group marb8 verify-code">
